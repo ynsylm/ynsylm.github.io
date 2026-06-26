@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sunflower Simulator | Roblox</title>
+<title>SQL Notifier | Discord</title>
 <style>
   * {
     margin: 0;
@@ -12,144 +12,200 @@
   }
 
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Courier New', monospace;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #fceabb 0%, #f8b500 35%, #ff7e5f 70%, #6dd5ed 100%);
-    background-size: 400% 400%;
-    animation: gradientShift 12s ease infinite;
-    overflow-x: hidden;
+    background: #0a0e0a;
+    overflow: hidden;
+    position: relative;
   }
 
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  /* Matrix tarzı düşen kod efekti */
+  .matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.25;
+    overflow: hidden;
+  }
+
+  .column {
+    position: absolute;
+    top: -100%;
+    color: #00ff41;
+    font-size: 18px;
+    line-height: 1.2;
+    white-space: pre;
+    animation: fall linear infinite;
+    text-shadow: 0 0 8px #00ff41;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(200vh); }
   }
 
   .container {
     text-align: center;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(10px);
-    border-radius: 30px;
+    background: rgba(10, 20, 10, 0.85);
+    border: 1px solid #00ff41;
+    border-radius: 12px;
     padding: 60px 50px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 40px rgba(0, 255, 65, 0.3), inset 0 0 30px rgba(0, 255, 65, 0.05);
     max-width: 600px;
     width: 90%;
     position: relative;
     z-index: 2;
   }
 
-  .sunflower {
-    font-size: 90px;
-    display: inline-block;
-    animation: spin 6s linear infinite;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+  .icon {
+    font-size: 70px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 15px #00ff41);
+    animation: glitch 2.5s infinite;
   }
 
-  @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  @keyframes glitch {
+    0%, 90%, 100% { transform: translate(0, 0); }
+    92% { transform: translate(-3px, 2px); }
+    94% { transform: translate(3px, -2px); }
+    96% { transform: translate(-2px, 0); }
   }
 
   h1 {
-    font-size: 48px;
-    color: #4a3000;
-    margin: 20px 0 10px;
+    font-size: 42px;
+    color: #00ff41;
+    margin: 15px 0 5px;
     font-weight: 800;
-    text-shadow: 2px 2px 0 #fff3, 4px 4px 10px rgba(0,0,0,0.1);
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
+  }
+
+  .typed {
+    color: #6effa0;
+    font-size: 15px;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
   }
 
   .badge {
     display: inline-block;
-    background: linear-gradient(90deg, #ff6a00, #ee0979);
-    color: white;
+    background: #00ff41;
+    color: #000;
     font-weight: bold;
-    padding: 10px 28px;
-    border-radius: 50px;
-    font-size: 18px;
-    letter-spacing: 1px;
-    margin: 20px 0;
-    box-shadow: 0 8px 20px rgba(238, 9, 121, 0.4);
-    animation: pulse 1.8s ease-in-out infinite;
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 15px rgba(0,255,65,0.6);
+    animation: pulse 1.6s ease-in-out infinite;
   }
 
   @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
   }
 
   p {
-    color: #5c4400;
-    font-size: 18px;
-    line-height: 1.6;
+    color: #b6ffcf;
+    font-size: 16px;
+    line-height: 1.7;
     margin-bottom: 30px;
   }
 
   .btn {
     display: inline-block;
-    background: #cccccc;
-    color: #666666;
-    font-size: 18px;
+    background: transparent;
+    color: #00ff41;
+    font-size: 17px;
     font-weight: bold;
-    padding: 16px 40px;
-    border-radius: 50px;
+    padding: 14px 38px;
+    border: 2px solid #00ff41;
+    border-radius: 6px;
     text-decoration: none;
-    cursor: not-allowed;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
-    user-select: none;
+    letter-spacing: 1px;
+    transition: all 0.25s ease;
+    box-shadow: 0 0 15px rgba(0,255,65,0.3);
   }
 
-  .emoji-row {
-    margin-top: 30px;
-    font-size: 28px;
-    display: flex;
-    justify-content: center;
-    gap: 14px;
+  .btn:hover {
+    background: #00ff41;
+    color: #000;
+    box-shadow: 0 0 30px rgba(0,255,65,0.8);
   }
 
-  .emoji-row span {
-    animation: bounce 2s ease-in-out infinite;
+  .terminal-line {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #4caf6a;
+    text-align: left;
+    background: #000;
+    border-radius: 6px;
+    padding: 12px 16px;
+    border: 1px solid #1a3d1a;
   }
 
-  .emoji-row span:nth-child(2) { animation-delay: 0.2s; }
-  .emoji-row span:nth-child(3) { animation-delay: 0.4s; }
-  .emoji-row span:nth-child(4) { animation-delay: 0.6s; }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+  .terminal-line span {
+    color: #00ff41;
   }
 
   footer {
-    margin-top: 25px;
-    font-size: 13px;
-    color: #8a7000;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #2e6b3e;
+    letter-spacing: 1px;
   }
 </style>
 </head>
 <body>
 
+  <div class="matrix-bg" id="matrixBg"></div>
+
   <div class="container">
-    <div class="sunflower">🌻</div>
-    <h1>Sunflower Simulator</h1>
-    <div class="badge">🚧 ÇOK YAKINDA 🚧</div>
+    <div class="icon">🛡️</div>
+    <h1>SQL NOTIFIER</h1>
+    <div class="typed">// gerçek zamanlı veritabanı izleme & bildirim sistemi</div>
+    <div class="badge">⚡ DISCORD SUNUCUSU AKTİF</div>
     <p>
-      Roblox'ta yepyeni bir simülasyon deneyimi geliyor!<br>
-      Ayçiçeklerini topla, büyüt ve dünyanı genişlet. 🌱<br>
-      Çok yakında oynanabilir olacak!
+      SQL Notifier topluluğuna katıl. Anlık bildirimler, geliştirici desteği<br>
+      ve özel araçlara erişim seni bekliyor.
     </p>
-    <a class="btn" href="#" onclick="return false;">🔒 Henüz Yayında Değil</a>
-    <div class="emoji-row">
-      <span>🌻</span>
-      <span>🌼</span>
-      <span>🐝</span>
-      <span>🌞</span>
+    <a class="btn" href="#" target="_blank">DISCORD'A KATIL →</a>
+
+    <div class="terminal-line">
+      <span>root@sqlnotifier:~$</span> connecting to server...<br>
+      <span>root@sqlnotifier:~$</span> status: <span>ONLINE</span>
     </div>
-    <footer>Sunflower Simulator — Yakında Roblox'ta</footer>
+
+    <footer>SQL_NOTIFIER © SİSTEM AKTİF // ERİŞİM YETKİLİ</footer>
   </div>
+
+  <script>
+    const bg = document.getElementById('matrixBg');
+    const chars = "01アイウエオカキクケコ$#@!&%SQL01";
+    const columnCount = 25;
+
+    for (let i = 0; i < columnCount; i++) {
+      const col = document.createElement('div');
+      col.classList.add('column');
+      col.style.left = (i * (100 / columnCount)) + '%';
+      col.style.animationDuration = (4 + Math.random() * 6) + 's';
+      col.style.animationDelay = (Math.random() * 5) + 's';
+
+      let text = '';
+      for (let j = 0; j < 40; j++) {
+        text += chars[Math.floor(Math.random() * chars.length)] + '\n';
+      }
+      col.textContent = text;
+      bg.appendChild(col);
+    }
+  </script>
 
 </body>
 </html>
