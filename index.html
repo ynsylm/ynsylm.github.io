@@ -49,25 +49,51 @@
     z-index: 2;
   }
 
-  .icon img {
-    width: 100px;
-    height: 100px;
+  /* ---- YUVARLAK LOGO ---- */
+  .logo-circle {
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
-    box-shadow: 0 0 25px #00ff41;
-    animation: glitch 2.5s infinite;
+    border: 3px solid #00ff41;
+    background: radial-gradient(circle, #0f2a0f 0%, #050a05 75%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    box-shadow: 0 0 20px rgba(0,255,65,0.6), inset 0 0 20px rgba(0,255,65,0.15);
+    animation: glow 2.5s ease-in-out infinite;
   }
 
-  @keyframes glitch {
-    0%, 90%, 100% { transform: translate(0, 0); }
-    92% { transform: translate(-3px, 2px); }
-    94% { transform: translate(3px, -2px); }
-    96% { transform: translate(-2px, 0); }
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(0,255,65,0.6), inset 0 0 20px rgba(0,255,65,0.15); }
+    50% { box-shadow: 0 0 35px rgba(0,255,65,0.9), inset 0 0 25px rgba(0,255,65,0.25); }
   }
+
+  .logo-text {
+    font-family: 'Courier New', monospace;
+    color: #00ff41;
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: 3px;
+    text-shadow: 0 0 6px #00ff41, 0 0 14px #00ff41;
+    line-height: 1;
+  }
+
+  .logo-sub {
+    font-family: 'Courier New', monospace;
+    color: #5fffa0;
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-top: 4px;
+    text-shadow: 0 0 5px #00ff41;
+  }
+  /* ------------------------ */
 
   h1 {
     font-size: 42px;
     color: #00ff41;
-    margin: 15px 0 5px;
+    margin: 5px 0 5px;
     font-weight: 800;
     letter-spacing: 2px;
     text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
@@ -153,7 +179,11 @@
   <div class="matrix-bg" id="matrixBg"></div>
 
   <div class="container">
-    <div class="icon"><img src="logo.png" alt="SQL Notifier Logo"></div>
+    <div class="logo-circle">
+      <div class="logo-text">SQL</div>
+      <div class="logo-sub">notifier</div>
+    </div>
+
     <h1>SQL NOTIFIER</h1>
     <div class="typed">// gerçek zamanlı veritabanı izleme & bildirim sistemi</div>
     <div class="badge">⚡ DISCORD SUNUCUSU AKTİF</div>
