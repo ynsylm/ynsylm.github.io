@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunflower Simulator | Roblox</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #fceabb 0%, #f8b500 35%, #ff7e5f 70%, #6dd5ed 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 12s ease infinite;
+    overflow-x: hidden;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 60px 50px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .sunflower {
+    font-size: 90px;
+    display: inline-block;
+    animation: spin 6s linear infinite;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  h1 {
+    font-size: 48px;
+    color: #4a3000;
+    margin: 20px 0 10px;
+    font-weight: 800;
+    text-shadow: 2px 2px 0 #fff3, 4px 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .badge {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff6a00, #ee0979);
+    color: white;
+    font-weight: bold;
+    padding: 10px 28px;
+    border-radius: 50px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin: 20px 0;
+    box-shadow: 0 8px 20px rgba(238, 9, 121, 0.4);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  p {
+    color: #5c4400;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #cccccc;
+    color: #666666;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: not-allowed;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+    user-select: none;
+  }
+
+  .emoji-row {
+    margin-top: 30px;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .emoji-row span {
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .emoji-row span:nth-child(2) { animation-delay: 0.2s; }
+  .emoji-row span:nth-child(3) { animation-delay: 0.4s; }
+  .emoji-row span:nth-child(4) { animation-delay: 0.6s; }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  footer {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #8a7000;
+  }
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sunflower">🌻</div>
+    <h1>Sunflower Simulator</h1>
+    <div class="badge">🚧 ÇOK YAKINDA 🚧</div>
+    <p>
+      Roblox'ta yepyeni bir simülasyon deneyimi geliyor!<br>
+      Ayçiçeklerini topla, büyüt ve dünyanı genişlet. 🌱<br>
+      Çok yakında oynanabilir olacak!
+    </p>
+    <a class="btn" href="#" onclick="return false;">🔒 Henüz Yayında Değil</a>
+    <div class="emoji-row">
+      <span>🌻</span>
+      <span>🌼</span>
+      <span>🐝</span>
+      <span>🌞</span>
+    </div>
+    <footer>Sunflower Simulator — Yakında Roblox'ta</footer>
+  </div>
+
+</body>
+</html>
